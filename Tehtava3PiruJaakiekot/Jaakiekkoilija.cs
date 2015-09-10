@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 
 namespace Tehtava3PiruJaakiekot
 {
-    class Jaakiekkoilija
+    public class Jaakiekkoilija
     {
         public String FirstName { get; set; }
         public String LastName { get; set; }
         public int Price { get; set; }
         public String team { get; set; }
+        public Jaakiekkoilija()
+        {
+            FirstName = "";
+            LastName = "";
+            Price = 1;
+            team = ""; 
+        }
         public Jaakiekkoilija(String Fname,String LName,String Team,int TransferPrice)
         {
             FirstName = Fname;

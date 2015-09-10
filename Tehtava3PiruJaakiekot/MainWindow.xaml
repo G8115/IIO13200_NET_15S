@@ -22,6 +22,8 @@
         <Button x:Name="btnEnd" Content="Sammuta" HorizontalAlignment="Left" Margin="227,137,0,0" VerticalAlignment="Top" Width="75" Click="btnEnd_Click"/>
         <ListBox x:Name="lbTeamPlayers" HorizontalAlignment="Left" Height="256" Margin="307,28,0,0" VerticalAlignment="Top" Width="200" SelectionChanged="lbTeamPlayers_SelectionChanged"/>
         <TextBlock x:Name="txtErrors" HorizontalAlignment="Left" Margin="25,173,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="111" Width="259"/>
+        <TextBox x:Name="txtbFileLocation" HorizontalAlignment="Left" Height="23" Margin="25,289,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="311"/>
+        <Button x:Name="btnChangeFileLocation" Content="vaihda tallennuskansiota" HorizontalAlignment="Left" Margin="341,290,0,0" VerticalAlignment="Top" Width="166" Click="btnChangeFileLocation_Click"/>
 
     </Grid>
 </Window>

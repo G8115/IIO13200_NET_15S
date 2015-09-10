@@ -23,12 +23,13 @@ namespace Tehtava3PiruJaakiekot
     {
         private blPiruJaakiekot businessTyhmyys;
         private bool newPlayer;
+        private bool newData = false;
         public MainWindow()
         {
             InitializeComponent();
 
             businessTyhmyys = new blPiruJaakiekot();
-
+            txtbFileLocation.Text = businessTyhmyys.getPath();
             newPlayer = true;
             List<String> tempTeamNames = new List<string>();
             tempTeamNames = businessTyhmyys.getTeams();
@@ -47,7 +48,7 @@ namespace Tehtava3PiruJaakiekot
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-
+            newData = true;
             int temp = getPrice();
             if (temp != -1)
             {
@@ -95,6 +96,10 @@ namespace Tehtava3PiruJaakiekot
         private void btnEnd_Click(object sender, RoutedEventArgs e)
         {
             setMessage("hei hei");
+            if(newData)
+            {
+                businessTyhmyys.saveData();
+            }
             this.Close();
         }
 
@@ -129,6 +134,11 @@ namespace Tehtava3PiruJaakiekot
                 txtBoxLastName.Text = tempKiekkoilija.LastName;
                 txtBoxPrice.Text = tempKiekkoilija.Price.ToString();
             }
+        }
+
+        private void btnChangeFileLocation_Click(object sender, RoutedEventArgs e)
+        {
+            businessTyhmyys.setPath(txtbFileLocation.Text);
         }
     }
 }
