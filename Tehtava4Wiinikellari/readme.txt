@@ -1,0 +1,1 @@
+﻿Viinit1.xml tiedostosta muutettiin <viinikellari> tag <ArrayOfWine> tag:ksi koskka se helpottaa xml tiedoston deserialisointia huomattavasti
