@@ -1,0 +1,16 @@
+﻿<Window x:Class="Tehtava5Lasnaolo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tehtava5Lasnaolo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Button x:Name="btnGetAll" Content="Hae kaikki" HorizontalAlignment="Left" VerticalAlignment="Top" Width="517" Click="btnGetAll_Click"/>
+        <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Height="23" Margin="0,22,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="517"/>
+        <Button x:Name="btnSearch" Content="Hae" HorizontalAlignment="Left" Margin="0,45,0,0" VerticalAlignment="Top" Width="517" Click="btnSearch_Click"/>
+        <DataGrid x:Name="dgData" HorizontalAlignment="Left" Margin="0,72,0,0" VerticalAlignment="Top" Height="221" Width="517"/>
+
+    </Grid>
+</Window>
