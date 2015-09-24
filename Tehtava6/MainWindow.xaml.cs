@@ -31,7 +31,7 @@ namespace JAMK.ICT.ADOBlanco
 
         private void IniMyStuff()
         {
-            //TODO täytetään combobox asiakkaitten maitten nimillä // ei pysty koska mitään ei tietokannasta kerrota
+            //TODO täytetään combobox asiakkaitten kaupunkien nimillä // ei pysty koska mitään ei tietokannasta kerrota
             //esimerkki kuinka App.Configissa oleva connectionstring luetaan
             lbMessages.Content = JAMK.ICT.Properties.Settings.Default.Tietokanta;
 
@@ -47,14 +47,14 @@ namespace JAMK.ICT.ADOBlanco
         {
             //TODO
             // ei voi hakea tietoa tietokannasta jota ei tunne
-            dgCustomers.ItemsSource = DBPlacebo.GetAllCustomersFromSQLServer("","",out viesti).AsDataView();
+            dgCustomers.ItemsSource = DBPlacebo.GetAllCustomersFromSQLServer(JAMK.ICT.Properties.Settings.Default.Tietokanta,"",out viesti).AsDataView();
         }
 
         private void btnGetFrom_Click(object sender, RoutedEventArgs e)
         {
             //TODO
             //hakutermiin tulisi lisätä comboboxin maa mutta koska ei mitään hajua databasesta ei voi mitään
-            dgCustomers.ItemsSource = DBPlacebo.GetAllCustomersFromSQLServer("", "", out viesti).AsDataView();
+            dgCustomers.ItemsSource = DBPlacebo.GetAllCustomersFromSQLServer(JAMK.ICT.Properties.Settings.Default.Tietokanta, "", out viesti).AsDataView();
         }
 
         private void btnYield_Click(object sender, RoutedEventArgs e)
