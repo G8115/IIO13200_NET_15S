@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
 
 namespace Tehtava5Lasnaolo
 {
@@ -20,19 +21,21 @@ namespace Tehtava5Lasnaolo
     /// </summary>
     public partial class MainWindow : Window
     {
+        blTehtava5 businesslokiikka;
         public MainWindow()
         {
             InitializeComponent();
+            businesslokiikka=new blTehtava5();
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-
+            dgData.ItemsSource = businesslokiikka.GetStudent(txtSearch.Text).AsDataView();
         }
 
         private void btnGetAll_Click(object sender, RoutedEventArgs e)
         {
-
+            dgData.ItemsSource = businesslokiikka.GetAllStudents().AsDataView();
         }
     }
 }
