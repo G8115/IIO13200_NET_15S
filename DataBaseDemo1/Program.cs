@@ -13,7 +13,7 @@ namespace DataBaseDemo1
         //ado datareader demonstration
         static void Main(string[] args)
         {
-            GetData_DataTable();
+            getDBTables();
 
         }
         static void GetData_DataTable()
@@ -68,7 +68,42 @@ namespace DataBaseDemo1
             return dt;
         }
 
-
+        static void getDBTables()
+        {
+            try
+            {
+                string sql = "";
+                sql = "SELECT * FROM sys.Tables;";
+                string connStr = @"Data Source=eight.labranet.jamk.fi;Initial Catalog=Viini;User ID=koodari;Password=koodari13";
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    //avataan db yhteys
+                    conn.Open();
+                    // luodaan komento olio
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        //luodaan reader
+                        using (SqlDataReader rdr = cmd.ExecuteReader())
+                        {
+                            //käydään reader läpi
+                            if (rdr.HasRows)
+                                while (rdr.Read())
+                                {
+                                    Console.WriteLine(rdr.GetString(0));
+                                }
+                            //suljetaan reader;
+                            rdr.Close();
+                        }
+                    }
+                    //suljetaan connection;
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
 
 
         static void GetData_DataReader()

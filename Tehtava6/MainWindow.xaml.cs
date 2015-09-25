@@ -23,6 +23,7 @@ namespace JAMK.ICT.ADOBlanco
     public partial class MainWindow : Window
     {
         String viesti;
+        blTehtava6 businesss;
         public MainWindow()
         {
             InitializeComponent();
@@ -34,7 +35,12 @@ namespace JAMK.ICT.ADOBlanco
             //TODO täytetään combobox asiakkaitten kaupunkien nimillä // ei pysty koska mitään ei tietokannasta kerrota
             //esimerkki kuinka App.Configissa oleva connectionstring luetaan
             lbMessages.Content = JAMK.ICT.Properties.Settings.Default.Tietokanta;
-
+            businesss = new blTehtava6();
+            var tenp = businesss.GetCities();
+            foreach (var s in tenp)
+            {
+                cbCountries.Items.Add(s);
+            }
         }
 
         private void btnGet3_Click(object sender, RoutedEventArgs e)
@@ -47,14 +53,16 @@ namespace JAMK.ICT.ADOBlanco
         {
             //TODO
             // ei voi hakea tietoa tietokannasta jota ei tunne
-            dgCustomers.ItemsSource = DBPlacebo.GetAllCustomersFromSQLServer(JAMK.ICT.Properties.Settings.Default.Tietokanta,"",out viesti).AsDataView();
+            //dgCustomers.ItemsSource = DBPlacebo.GetAllCustomersFromSQLServer(JAMK.ICT.Properties.Settings.Default.Tietokanta,"",out viesti).AsDataView();
+            dgCustomers.ItemsSource = businesss.GetAll().AsDataView();
         }
 
         private void btnGetFrom_Click(object sender, RoutedEventArgs e)
         {
             //TODO
             //hakutermiin tulisi lisätä comboboxin maa mutta koska ei mitään hajua databasesta ei voi mitään
-            dgCustomers.ItemsSource = DBPlacebo.GetAllCustomersFromSQLServer(JAMK.ICT.Properties.Settings.Default.Tietokanta, "", out viesti).AsDataView();
+            //dgCustomers.ItemsSource = DBPlacebo.GetAllCustomersFromSQLServer(JAMK.ICT.Properties.Settings.Default.Tietokanta, "", out viesti).AsDataView();
+            dgCustomers.ItemsSource = businesss.GetCustemersPerCity(cbCountries.SelectedItem.ToString()).AsDataView();
         }
 
         private void btnYield_Click(object sender, RoutedEventArgs e)

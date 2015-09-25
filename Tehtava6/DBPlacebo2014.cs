@@ -7,42 +7,43 @@ using System.Text;
 
 namespace JAMK.ICT.ADOBlanco
 {
-  public static class DBPlacebo
-  {
-    public static DataTable GetTestCustomers()
-	{
-    //create
-    DataTable dt = new DataTable();
-    //columns
-    dt.Columns.Add("asioid",typeof(string));
-    dt.Columns.Add("LastName",typeof(string));
-    dt.Columns.Add("FirstName", typeof(string));
-    //rows
-    dt.Rows.Add("A3581", "Waltari","Mika");
-	  dt.Rows.Add("B3553", "King", "Stephen");
-	  dt.Rows.Add("C1238", "Neruda", "Pablo");
-	  dt.Rows.Add("D9876", "Oksanen", "Sofi");
-	return dt;
-	}
-    public static DataTable GetAllCustomersFromSQLServer(string connectionStr, string taulu, out string viesti)
+    public static class DBPlacebo
     {
-        // basic principle: connect - execute query - disconnect
-        try
+        public static DataTable GetTestCustomers()
         {
-            SqlConnection myConn = new SqlConnection(connectionStr);
-            myConn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM " + taulu, myConn);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds, taulu);
-            viesti = "Tiedot haettu onnistuneesti tietokannasta " + myConn.DataSource;
-            return ds.Tables[taulu];
+            //create
+            DataTable dt = new DataTable();
+            //columns
+            dt.Columns.Add("asioid", typeof(string));
+            dt.Columns.Add("LastName", typeof(string));
+            dt.Columns.Add("FirstName", typeof(string));
+            //rows
+            dt.Rows.Add("A3581", "Waltari", "Mika");
+            dt.Rows.Add("B3553", "King", "Stephen");
+            dt.Rows.Add("C1238", "Neruda", "Pablo");
+            dt.Rows.Add("D9876", "Oksanen", "Sofi");
+            return dt;
         }
-        catch (Exception ex)
+        public static DataTable GetAllCustomersFromSQLServer(string connectionStr, string taulu, out string viesti)
         {
-            viesti = ex.Message;
-            throw;
+            // basic principle: connect - execute query - disconnect
+            try
+            {
+                SqlConnection myConn = new SqlConnection(connectionStr);
+                myConn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT * FROM "+taulu, myConn);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                viesti = "Tiedot haettu onnistuneesti tietokannasta " + myConn.DataSource;
+                myConn.Close();
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                viesti = ex.Message;
+                return null;
+            }
         }
     }
-  }
 }

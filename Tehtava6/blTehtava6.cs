@@ -15,18 +15,25 @@ namespace JAMK.ICT
         public blTehtava6()
         {
             dt = new DataTable();
-            dt = DBPlacebo.GetAllCustomersFromSQLServer(JAMK.ICT.Properties.Settings.Default.Tietokanta, "Viini", out viesti);
+            dt = DBPlacebo.GetAllCustomersFromSQLServer(JAMK.ICT.Properties.Settings.Default.Tietokanta, "customer", out viesti);
         }
         public DataTable GetAll()
         {
             return dt;
+        }
+        public DataTable GetCustemersPerCity(String city)
+        {
+            String query = @"City = '"+city+"'";
+            DataTable filtereDataTable = dt.Select(query).CopyToDataTable();
+            return filtereDataTable;
         }
         public List<String> GetCities()
         {
             List<String> tempString = new List<String>();
             foreach (DataRow row in dt.Rows)
             {
-                tempString.Add(row["City"]);
+                if (!tempString.Contains(row[5].ToString()))
+                    tempString.Add(row[5].ToString());
             }
             return tempString;
         }
