@@ -16,6 +16,7 @@ namespace JAMK.ICT.JSON
         public string Yield()
         {
             //TODO hae opettajan kertomasta palvelusta JSONia
+            //katso ja ihmettele Tehtava 7:aa
             return "Hello JSON!";
         }
             
