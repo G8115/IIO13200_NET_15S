@@ -9,6 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <!-- TÄMÄ ON TOTEUTUS TEHTÄVÄÄN 9b-->
             <!-- 1. Datasourcen määrittely -->
             <asp:SqlDataSource ID="srcMuuvit" ConnectionString="<%$ ConnectionStrings:Muuvit %>" SelectCommand="SELECT title,director,year FROM movies" runat="server"></asp:SqlDataSource>
             <!-- 2. Datakontrolli datan esittämistä varten -->
