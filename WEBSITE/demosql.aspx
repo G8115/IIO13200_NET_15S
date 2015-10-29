@@ -21,6 +21,41 @@
             <!-- 2. Datakontrolli xml datan esittämistä varten -->
             <h2>XMLDEMO</h2>
             <asp:GridView ID="GridView1" runat="server" DataSourceID="xmlMuuvit"></asp:GridView>
+
+            <!-- XML:n esittäminen reapeter kontrollilla -->
+            <h2>REAPEATER DEMO</h2>
+
+            <asp:Repeater ID="Repeater1" DataSourceID="xmlMuuvit" runat="server">
+                <HeaderTemplate>
+                    <table border="1">
+                        <tr>
+                            <td>nimi</td>
+                            <td>maa</td>
+                            <td>ohjaaja</td>
+                        </tr>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <tr>
+                        <td><%# Eval("Name") %></td>
+                        <td><%# Eval("Country")  %></td>
+                        <td><%# Eval("Director")  %></td>
+                    </tr>
+                </ItemTemplate>
+                <FooterTemplate>
+                    </table>
+                </FooterTemplate>
+            </asp:Repeater>
+
+            <h2>REAPEATER DEMO 2</h2>
+            <asp:Repeater ID="Repeater2" DataSourceID="xmlMuuvit" runat="server">
+                <ItemTemplate>
+                    <b>
+                        <%# Eval("Name") %>
+                    </b>
+                    <br />
+                </ItemTemplate>
+            </asp:Repeater>
+
         </div>
     </form>
 </body>
