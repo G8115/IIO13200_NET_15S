@@ -7,9 +7,9 @@ using System.Web.UI.WebControls;
 
 public partial class Levykauppa2 : System.Web.UI.Page
 {
-    public string xpath;
     protected void Page_Load(object sender, EventArgs e)
     {
-        xpath = "Records/genre[@name='Pop']/record[@ISBN='" + Request.QueryString["id"] + "']";
+        xmlLevyt.XPath = "Records/genre/record[@ISBN='" + Request.QueryString["id"] + "']/song";
+        xmlLevyt2.XPath = "Records/genre/record[@ISBN='" + Request.QueryString["id"] + "']";
     }
 }
