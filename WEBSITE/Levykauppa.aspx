@@ -25,7 +25,7 @@
                                     ID='link1'
                                     runat="server"
                                     Text='<%# Eval("ISBN") %>'
-                                    NavigateUrl="./Levykauppa2.aspx" />
+                                    NavigateUrl='<%# "./Levykauppa2.aspx?id="+ Eval("ISBN") %>' />
                             </td>
                         </tr>
                         <tr>

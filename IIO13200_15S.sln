@@ -45,6 +45,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WEBSITE", "WEBSITE\", "{C55
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplication1", "WpfApplication1\WpfApplication1.csproj", "{08D4A57D-B1DF-4BF8-8CCF-19020066945B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +97,10 @@ Global
 		{C55865C6-3CB4-4E02-BAA7-5CFF1822E191}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C55865C6-3CB4-4E02-BAA7-5CFF1822E191}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{C55865C6-3CB4-4E02-BAA7-5CFF1822E191}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{08D4A57D-B1DF-4BF8-8CCF-19020066945B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08D4A57D-B1DF-4BF8-8CCF-19020066945B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08D4A57D-B1DF-4BF8-8CCF-19020066945B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08D4A57D-B1DF-4BF8-8CCF-19020066945B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

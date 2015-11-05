@@ -33,14 +33,22 @@ namespace Tehtava3PiruJaakiekot
         //serialize hockeyteam list into an xml file
         public void writeData(List<Jaakiekkoilija> j)
         {
-            if (File.Exists(path))
+            try
             {
-                File.Delete(path);
+                if (File.Exists(path))
+                {
+
+                    File.Delete(path);
+
+                }
+                System.Xml.Serialization.XmlSerializer writer = new System.Xml.Serialization.XmlSerializer(typeof(List<Jaakiekkoilija>));
+                System.IO.FileStream file = System.IO.File.Create(path);
+                writer.Serialize(file, j);
+                file.Close();
             }
-            System.Xml.Serialization.XmlSerializer writer = new System.Xml.Serialization.XmlSerializer(typeof(List<Jaakiekkoilija>));
-            System.IO.FileStream file = System.IO.File.Create(path);
-            writer.Serialize(file, j);
-            file.Close();
+            catch (Exception)
+            {
+            }
         }
         //deserialize hockeyteam list from an xml file
         public List<Jaakiekkoilija> readData()
